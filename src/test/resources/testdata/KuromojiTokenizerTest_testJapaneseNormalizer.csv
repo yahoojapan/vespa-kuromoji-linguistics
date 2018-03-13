@@ -1,0 +1,15 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+input,MICROSOFTのWord（ﾜｰﾄﾞ）が今だけ＄８０で販売,JAPANESE,ALL,false 
+expect,MICROSOFT,microsoft,ALPHABETIC,ASCII,false,0
+expect,の,の,ALPHABETIC,HIRAGANA,false,9
+expect,Word,word,ALPHABETIC,ASCII,false,10
+expect,（,(,PUNCTUATION,ASCII,false,14
+expect,ﾜｰﾄﾞ,ワード,ALPHABETIC,KATAKANA,false,15
+expect,）,),PUNCTUATION,ASCII,false,19
+expect,が,が,ALPHABETIC,HIRAGANA,false,20
+expect,今,今,ALPHABETIC,UNKNOWN,false,21
+expect,だけ,だけ,ALPHABETIC,HIRAGANA,false,22
+expect,＄,$,SYMBOL,ASCII,false,24
+expect,８０,80,NUMERIC,ASCII,false,25
+expect,で,で,ALPHABETIC,HIRAGANA,false,27
+expect,販売,販売,ALPHABETIC,UNKNOWN,false,28

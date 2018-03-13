@@ -1,0 +1,6 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,false
+specialtokens,default,6S,6S
+input,iPhone 6S,JAPANESE,ALL,false 
+expect,iPhone,iPhone,ALPHABETIC,ASCII,false,0
+expect, , ,SPACE,ASCII,false,6
+expect,6S,6S,NUMERIC,ASCII,true,7

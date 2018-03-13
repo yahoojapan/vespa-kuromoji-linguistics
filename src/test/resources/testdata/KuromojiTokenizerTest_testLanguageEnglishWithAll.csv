@@ -1,0 +1,8 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,true,true
+input,お寿司が食べたい。,ENGLISH,ALL,false 
+expect,お,お,ALPHABETIC,HIRAGANA,false,0
+expect,寿司,寿司,ALPHABETIC,UNKNOWN,false,1
+expect,が,が,ALPHABETIC,HIRAGANA,false,3
+expect,食べ,食べる,ALPHABETIC,UNKNOWN,false,4
+expect,たい,たい,ALPHABETIC,HIRAGANA,false,6
+expect,。,。,PUNCTUATION,UNKNOWN,false,8

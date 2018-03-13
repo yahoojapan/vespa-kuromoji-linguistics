@@ -1,0 +1,5 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+specialtokens,default,C++,C++
+input,C++入門,JAPANESE,ALL,false 
+expect,C++,c++,ALPHABETIC,ASCII,false,0
+expect,入門,入門,ALPHABETIC,UNKNOWN,false,3

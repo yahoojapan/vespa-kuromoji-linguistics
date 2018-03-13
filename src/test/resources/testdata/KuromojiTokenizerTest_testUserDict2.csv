@@ -1,0 +1,5 @@
+kuromoji,SEARCH,2,3000,7,1700,false,testUserDict.csv,default,false,false
+input,すもももも,JAPANESE,ALL,false 
+expect,すも,すも,ALPHABETIC,HIRAGANA,false,0
+expect,もも,もも,ALPHABETIC,HIRAGANA,false,2
+expect,も,も,ALPHABETIC,HIRAGANA,false,4

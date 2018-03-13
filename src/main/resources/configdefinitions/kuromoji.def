@@ -1,0 +1,14 @@
+namespace=language.lib.kuromoji
+
+mode                    string  default="search"
+kanji.length_threshold  int	    default=2
+kanji.penalty           int	    default=3000
+other.length_threshold  int	    default=7
+other.penalty           int	    default=1700
+nakaguro_split          bool    default=false
+
+user_dict               string  default=""
+tokenlist_name          string  default="default"
+
+all_language            bool    default=false
+ignore_case             bool    default=true

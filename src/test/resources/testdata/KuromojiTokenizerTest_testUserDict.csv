@@ -1,0 +1,6 @@
+kuromoji,SEARCH,2,3000,7,1700,false,testUserDict.csv,default,false,false
+input,東京タワーと東京スカイツリー,JAPANESE,ALL,false 
+expect,東京,東京,ALPHABETIC,UNKNOWN,false,0
+expect,タワー,タワー,ALPHABETIC,KATAKANA,false,2
+expect,と,と,ALPHABETIC,HIRAGANA,false,5
+expect,東京スカイツリー,東京スカイツリー,ALPHABETIC,UNKNOWN,false,6

@@ -1,0 +1,4 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+input,お寿司が食べたい。,ENGLISH,ALL,false 
+expect,お寿司が食べたい,お寿司が食べたい,ALPHABETIC,UNKNOWN,false,0
+expect,。,。,PUNCTUATION,UNKNOWN,false,8

@@ -1,0 +1,11 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+input,1㌶に30㌧の㈱,JAPANESE,ALL,false 
+expect,1,1,NUMERIC,ASCII,false,0
+expect,㌶,ヘクタール,ALPHABETIC,KATAKANA,false,1
+expect,に,に,ALPHABETIC,HIRAGANA,false,2
+expect,30,30,NUMERIC,ASCII,false,3
+expect,㌧,トン,ALPHABETIC,KATAKANA,false,5
+expect,の,の,ALPHABETIC,HIRAGANA,false,6
+expect,㈱,(,PUNCTUATION,ASCII,false,7
+expect,㈱,株,ALPHABETIC,UNKNOWN,false,7
+expect,㈱,),PUNCTUATION,ASCII,false,7

@@ -1,0 +1,6 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+input,hoge　 fuga　 　,JAPANESE,ALL,false
+expect,hoge,hoge,ALPHABETIC,ASCII,false,0
+expect,　 ,  ,SPACE,ASCII,false,4
+expect,fuga,fuga,ALPHABETIC,ASCII,false,6
+expect,　 　,   ,SPACE,ASCII,false,10

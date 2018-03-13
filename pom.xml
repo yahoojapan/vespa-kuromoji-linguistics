@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+     Copyright 2018 Yahoo Japan Corporation.
+     Licensed under the terms of the Apache 2.0 license.
+     See LICENSE in the project root. 
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>jp.co.yahoo.vespa</groupId>
+  <artifactId>kuromoji-linguistics</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>container-plugin</packaging>
+
+  <name>kuromoji-linguistics</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <source-jdk.version>1.8</source-jdk.version>
+    <target-jdk.version>1.8</target-jdk.version>
+    <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+    
+    <vespa.version>6-SNAPSHOT</vespa.version>
+    <guice.version>3.0</guice.version>
+    
+    <kuromoji-ipadic.version>0.9.0</kuromoji-ipadic.version>
+  </properties>
+  
+  <repositories>
+    <repository>
+      <id>Atilika Open Source repository</id>
+      <url>http://www.atilika.org/nexus/content/repositories/atilika</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.yahoo.vespa</groupId>
+      <artifactId>component</artifactId>
+      <version>${vespa.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.yahoo.vespa</groupId>
+      <artifactId>config-lib</artifactId>
+      <version>${vespa.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.yahoo.vespa</groupId>
+      <artifactId>configdefinitions</artifactId>
+      <version>${vespa.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.yahoo.vespa</groupId>
+      <artifactId>container-di</artifactId>
+      <version>${vespa.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.yahoo.vespa</groupId>
+      <artifactId>linguistics</artifactId>
+      <version>${vespa.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  
+    <dependency>
+  	  <groupId>com.atilika.kuromoji</groupId>
+      <artifactId>kuromoji-ipadic</artifactId>
+      <version>${kuromoji-ipadic.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <build> 
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${source-jdk.version}</source>
+          <target>${target-jdk.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+      	<!-- for generating MANIFEST for OSGi -->
+        <groupId>com.yahoo.vespa</groupId>
+        <artifactId>bundle-plugin</artifactId>
+        <version>${vespa.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <bundleSymbolicName>${artifactId}</bundleSymbolicName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- for generating Config classes -->
+        <groupId>com.yahoo.vespa</groupId>
+        <artifactId>config-class-plugin</artifactId>
+        <version>${vespa.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>config-gen</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
