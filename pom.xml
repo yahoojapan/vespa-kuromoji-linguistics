@@ -14,7 +14,14 @@
   <packaging>container-plugin</packaging>
 
   <name>kuromoji-linguistics</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/yahoojapan/vespa-kuromoji-linguistics</url>
+
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -52,12 +59,6 @@
     <dependency>
       <groupId>com.yahoo.vespa</groupId>
       <artifactId>configdefinitions</artifactId>
-      <version>${vespa.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.yahoo.vespa</groupId>
-      <artifactId>container-di</artifactId>
       <version>${vespa.version}</version>
       <scope>provided</scope>
     </dependency>
