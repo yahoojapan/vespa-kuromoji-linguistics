@@ -64,12 +64,6 @@
     </dependency>
     <dependency>
       <groupId>com.yahoo.vespa</groupId>
-      <artifactId>container-di</artifactId>
-      <version>${vespa.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.yahoo.vespa</groupId>
       <artifactId>linguistics</artifactId>
       <version>${vespa.version}</version>
       <scope>provided</scope>
