@@ -54,11 +54,11 @@ You can configure package by &lt;config name="language.lib.kuromoji.kuromoji"&gt
 |parameter|type|default|description|
 |:--------|:---|:------|:----------|
 |mode|string|search|mode of Kuromoji (normal OR search OR extended)|
-|kanji.length_threshold|int|2|TODO|
-|kanji.penalty|int|3000|TODO|
-|other.length_threshold|int|7|TODO|
-|other.penalty|int|1700|TODO|
-|nakaguro_split|bool|false|TODO|
+|kanji.length_threshold|int|2|threshold of the length of kanji tokens which is penalized while running the Viterbi search (expert feature).|
+|kanji.penalty|int|3000|additional cost for kanji tokens which is longer than the pre-defined length threshold (expert feature).|
+|other.length_threshold|int|7|threshold of the length of non-kanji tokens which is penalized while running the Viterbi search (expert feature).|
+|other.penalty|int|1700|additional cost for non-kanji tokens which is longer than the pre-defined length threshold (expert feature).|
+|nakaguro_split|bool|false|whether splits unknown words on the middle dot character (U+30FB KATAKANA MIDDLE DOT)|
 |user_dict|string|-|path of user dictionary|
 |tokenlist_name|string|default|target specialtokens name|
 |all_language|bool|false|apply kuromoji tokenizer to all language or only Japanese|

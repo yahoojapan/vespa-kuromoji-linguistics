@@ -37,11 +37,11 @@ import java.util.logging.Logger;
  * <table>
  * <tr><th>parameter</th><th>default</th><th>description</th></tr>
  * <tr><td>mode</td><td>search</td><td>mode of Kuromoji (normal|search|extended)</td></tr>
- * <tr><td>kanji.length_threshold</td><td>2</td><td>TODO</td></tr>
- * <tr><td>kanji.penalty</td><td>3000</td><td>TODO</td></tr>
- * <tr><td>other.length_threshold</td><td>7</td><td>TODO</td></tr>
- * <tr><td>other.penalty</td><td>1700</td><td>TODO</td></tr>
- * <tr><td>nakaguro_split</td><td>false</td><td>TODO</td></tr>
+ * <tr><td>kanji.length_threshold</td><td>2</td><td>threshold of the length of kanji tokens which is penalized while running the Viterbi search (expert feature).</td></tr>
+ * <tr><td>kanji.penalty</td><td>3000</td><td>additional cost for kanji tokens which is longer than the pre-defined length threshold (expert feature).</td></tr>
+ * <tr><td>other.length_threshold</td><td>7</td><td>threshold of the length of non-kanji tokens which is penalized while running the Viterbi search (expert feature).</td></tr>
+ * <tr><td>other.penalty</td><td>1700</td><td>additional cost for non-kanji tokens which is longer than the pre-defined length threshold (expert feature).</td></tr>
+ * <tr><td>nakaguro_split</td><td>false</td><td>whether splits unknown words on the middle dot character (U+30FB KATAKANA MIDDLE DOT)</td></tr>
  * <tr><td>user_dict</td><td>-</td><td>path of user dictionary</td></tr>
  * <tr><td>tokenlist_name</td><td>default</td><td>target specialtokens name</td></tr>
  * <tr><td>all_language</td><td>false</td><td>apply kuromoji tokenizer to all language</td></tr>
