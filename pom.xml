@@ -14,7 +14,7 @@
   <packaging>container-plugin</packaging>
 
   <name>kuromoji-linguistics</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/yahoojapan/vespa-kuromoji-linguistics</url>
 
   <licenses>
     <license>
