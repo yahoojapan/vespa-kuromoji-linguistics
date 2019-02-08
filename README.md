@@ -13,14 +13,14 @@ For more details, please see official website of Kuromoji.
 
 ### Requirement
 
-JDK (>= 1.8) and maven are required to build package.
+JDK (>= 11) and maven are required to build package.
 
 ### Build
 
 Execute mvn command as below, and you can get package as target/kuromoji-linguistics-${VERSION}-deploy.jar
 
 ```
-$ mvn package -Dvespa.version='6.214.72'    # You can specify 6.214.72 or later.
+$ mvn package -Dvespa.version='7.7.18'     # You can specify 7.7.18 or later.
 ```
 
 ## Use Package
