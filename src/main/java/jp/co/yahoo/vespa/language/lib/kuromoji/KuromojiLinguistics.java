@@ -6,7 +6,6 @@
 package jp.co.yahoo.vespa.language.lib.kuromoji;
 
 import com.google.inject.Inject;
-import com.yahoo.collections.Tuple2;
 import com.yahoo.component.Version;
 import com.yahoo.language.Linguistics;
 import com.yahoo.language.detect.Detector;
@@ -140,23 +139,4 @@ public class KuromojiLinguistics implements Linguistics {
   public CharacterClasses getCharacterClasses() {
     return simpleLinguistics.getCharacterClasses();
   }
-
-  @Override
-  public Tuple2<String, Version> getVersion(Component component) {
-    switch (component) {
-      case STEMMER:
-      case TOKENIZER:
-      case SEGMENTER:
-        return new Tuple2<String, Version>("kuromoji", context.getKuromojiVersion());
-      case NORMALIZER:
-      case TRANSFORMER:
-      case DETECTOR:
-      case GRAM_SPLITTER:
-      case CHARACTER_CLASSES:
-        return simpleLinguistics.getVersion(component);
-      default:
-        throw new IllegalArgumentException("unknown component type");
-    }
-  }
-
 }

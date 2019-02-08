@@ -14,7 +14,6 @@ import java.util.Optional;
 
 import org.junit.Test;
 
-import com.yahoo.collections.Tuple2;
 import com.yahoo.component.Version;
 import com.yahoo.language.Language;
 import com.yahoo.language.Linguistics;
@@ -167,16 +166,4 @@ public class KuromojiLinguisticsTest {
         assertTrue(characterClasses.isDigit(Character.codePointAt(java.text.Normalizer.normalize("１２３", java.text.Normalizer.Form.NFKC), 0)));
     }
     
-    @Test
-    public void testVersion() throws Exception {
-        Linguistics linguistics = KuromojiLinguistics.create(DEFAULT_KUROMOJI_CONFIG, DEFAULT_STOKEN_CONFIG).get();
-        
-        Tuple2<String, Version> krmjVersion = linguistics.getVersion(Linguistics.Component.TOKENIZER);
-        assertEquals("kuromoji", krmjVersion.first);
-        assertEquals("0.9", krmjVersion.second.toString()); // XXX: change if you changed version!
-        
-        Tuple2<String, Version> simpleVersion = linguistics.getVersion(Linguistics.Component.GRAM_SPLITTER);
-        assertEquals("yahoo", simpleVersion.first);
-        assertEquals("1", simpleVersion.second.toString()); // XXX: change if you changed version!
-    }
 }
