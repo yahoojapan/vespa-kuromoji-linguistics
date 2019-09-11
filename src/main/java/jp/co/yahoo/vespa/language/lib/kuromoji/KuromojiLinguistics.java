@@ -51,7 +51,9 @@ public class KuromojiLinguistics implements Linguistics {
 
   private static final Logger logger = Logger.getLogger(KuromojiLinguistics.class.getName());
 
-  private SimpleLinguistics simpleLinguistics = new SimpleLinguistics();
+  private final SimpleLinguistics simpleLinguistics = new SimpleLinguistics();
+  private final CharacterClasses characterClasses = new KuromojiCharacterClasses();
+  private final GramSplitter gramSplitter = new GramSplitter(characterClasses);
 
   private KuromojiContext context;
   private Tokenizer tokenizer;
@@ -129,7 +131,7 @@ public class KuromojiLinguistics implements Linguistics {
    */
   @Override
   public GramSplitter getGramSplitter() {
-    return simpleLinguistics.getGramSplitter();
+    return gramSplitter;
   }
 
   /**
@@ -137,6 +139,6 @@ public class KuromojiLinguistics implements Linguistics {
    */
   @Override
   public CharacterClasses getCharacterClasses() {
-    return simpleLinguistics.getCharacterClasses();
+    return characterClasses;
   }
 }

@@ -10,7 +10,7 @@
 
   <groupId>jp.co.yahoo.vespa</groupId>
   <artifactId>kuromoji-linguistics</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>container-plugin</packaging>
 
   <name>kuromoji-linguistics</name>

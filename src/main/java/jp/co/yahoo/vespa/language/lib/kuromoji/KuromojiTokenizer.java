@@ -84,6 +84,10 @@ public class KuromojiTokenizer implements Tokenizer {
       String orig = getOrig(t, input, normOffset, result);
       String tokenString = processToken(t, language, stemMode, removeAccents);
 
+      if (tokenString.isEmpty()) {
+        continue;
+      }
+
       // @formatter:off
       tokens.add(new KuromojiToken.Builder(orig).tokenString(tokenString)
                      // XXX: we only consider head character
