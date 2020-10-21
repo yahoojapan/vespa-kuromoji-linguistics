@@ -6,6 +6,7 @@
 package jp.co.yahoo.vespa.language.lib.kuromoji;
 
 import com.yahoo.component.Version;
+import com.yahoo.language.LinguisticsCase;
 import com.yahoo.language.lib.kuromoji.KuromojiConfig;
 import com.yahoo.vespa.configdefinition.SpecialtokensConfig;
 
@@ -108,9 +109,7 @@ public class KuromojiContext {
 
     // load special tokens as user dict
     for (String token : specialTokens.keySet()) {
-      if (isIgnoreCase()) {
-        token = token.toLowerCase(Locale.US);
-      }
+      token = isIgnoreCase() ? LinguisticsCase.toLowerCase(token) : token;
 
       // XXX: do we need to provide correct reading?
       builder.append(String.join(",", token, token, token, "SpecialToken"));

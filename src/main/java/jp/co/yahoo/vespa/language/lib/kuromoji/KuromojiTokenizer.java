@@ -6,7 +6,6 @@
 package jp.co.yahoo.vespa.language.lib.kuromoji;
 
 import com.yahoo.language.Language;
-import com.yahoo.language.LinguisticsCase;
 import com.yahoo.language.process.Normalizer;
 import com.yahoo.language.process.StemMode;
 import com.yahoo.language.process.Token;
@@ -30,7 +29,6 @@ public class KuromojiTokenizer implements Tokenizer {
 
   private KuromojiContext context;
 
-  private Normalizer normalizer;
   private Transformer transformer;
 
   private Tokenizer fallback;
@@ -42,7 +40,6 @@ public class KuromojiTokenizer implements Tokenizer {
   public KuromojiTokenizer(KuromojiContext context, Normalizer normalizer, Transformer transformer, Tokenizer fallback)
       throws IOException {
     this.context = context;
-    this.normalizer = normalizer;
     this.transformer = transformer;
     this.fallback = fallback;
 
@@ -63,10 +60,9 @@ public class KuromojiTokenizer implements Tokenizer {
     }
 
     // normalize input before tokenizing
-    JapaneseNormalizer.Result result = null;
+    JapaneseNormalizer.Result result;
     try {
-      // XXX: is it OK to transform input before tokenization?
-      result = JapaneseNormalizer.normalizeByNFKC(context.isIgnoreCase() ? LinguisticsCase.toLowerCase(input) : input);
+      result = JapaneseNormalizer.normalizeByNFKC(input, context.isIgnoreCase());
     } catch (NormalizationException e) {
       // fallback to original input
       // XXX: is it better to output error log?
@@ -121,9 +117,7 @@ public class KuromojiTokenizer implements Tokenizer {
       // XXX: sometime, base form will be "*" (maybe UNKNOWN)
       input = t.getSurface();
     }
-    input = normalizer.normalize(input);
-    // we already transformed before tokenization if necessary
-    //        input = LinguisticsCase.toLowerCase(input);
+
     if (removeAccents) {
       input = transformer.accentDrop(input, language);
     }

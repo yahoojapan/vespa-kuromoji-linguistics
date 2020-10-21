@@ -14,7 +14,6 @@ import java.util.Optional;
 
 import org.junit.Test;
 
-import com.yahoo.component.Version;
 import com.yahoo.language.Language;
 import com.yahoo.language.Linguistics;
 import com.yahoo.language.detect.Detection;
@@ -68,8 +67,9 @@ public class KuromojiLinguisticsTest {
         
         Tokenizer tokenizer = linguistics.getTokenizer();
         String input = "お寿司が食べたい。";
-        String[] expecteds = new String[]{"お", "寿司", "が", "食べる", "たい", "。"};
-        List<Token> actuals = (List<Token>) tokenizer.tokenize(input, Language.JAPANESE, StemMode.ALL, false);
+        String[] expecteds = new String[]{"お", "寿司", "が", "食べる", "たい", "。"};
+        boolean removeAccent = true; // Vespa use NormalizingSearcher as default.
+        List<Token> actuals = (List<Token>) tokenizer.tokenize(input, Language.JAPANESE, StemMode.ALL, removeAccent);
 
         assertEquals(expecteds.length, actuals.size());
         for (int i=0; i<actuals.size(); ++i) {
@@ -145,7 +145,7 @@ public class KuromojiLinguisticsTest {
         
         for (String expected : expecteds) {
             Gram gram = actualIter.next();
-            assertEquals(expected, input.substring(gram.getStart(), gram.getStart() + gram.getLength()));
+            assertEquals(expected, input.substring(gram.getStart(), gram.getStart() + gram.getCodePointCount()));
         }
         assertFalse(actualIter.hasNext());
     }
