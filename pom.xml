@@ -135,7 +135,7 @@
             <configuration>
               <file>./target/${project.artifactId}-${project.version}-deploy.jar</file>
               <repositoryId>github</repositoryId>
-              <url>https://maven.pkg.github.com/mnagaya/vespa-kuromoji-linguistics</url>
+              <url>https://maven.pkg.github.com/yahoojapan/vespa-kuromoji-linguistics</url>
               <groupId>${project.groupId}</groupId>
               <artifactId>${project.artifactId}</artifactId>
               <version>${project.version}</version>
