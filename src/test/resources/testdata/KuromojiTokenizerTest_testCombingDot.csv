@@ -1,0 +1,9 @@
+kuromoji,SEARCH,2,3000,7,1700,false,,default,false,true
+input,i İs a æ,JAPANESE,ALL,false
+expect,i,i,ALPHABETIC,ASCII,false,0
+expect, , ,SPACE,ASCII,false,1
+expect,İs,is,ALPHABETIC,ASCII,false,2
+expect, , ,SPACE,ASCII,false,4
+expect,a,a,ALPHABETIC,ASCII,false,5
+expect, , ,SPACE,ASCII,false,6
+expect,æ,æ,ALPHABETIC,UNKNOWN,false,7

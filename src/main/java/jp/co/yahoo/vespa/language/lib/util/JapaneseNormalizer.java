@@ -5,7 +5,12 @@
  */
 package jp.co.yahoo.vespa.language.lib.util;
 
+import com.yahoo.language.Language;
+import com.yahoo.language.LinguisticsCase;
 import jp.co.yahoo.vespa.language.lib.exception.NormalizationException;
+
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 /**
  * Normalize utilities for Japanese text.
@@ -13,6 +18,8 @@ import jp.co.yahoo.vespa.language.lib.exception.NormalizationException;
 public class JapaneseNormalizer {
 
   public static final int MAX_SUB_LENGTH = 255;
+
+  private final static Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
 
   public static class Result {
     public final String norm;
@@ -34,6 +41,10 @@ public class JapaneseNormalizer {
     }
   }
 
+  public static String accentDrop(String input) {
+    return pattern.matcher(Normalizer.normalize(input, Normalizer.Form.NFD)).replaceAll("");
+  }
+
   /**
    * NFKC normalization with orig<=>norm validation.
    *
@@ -47,8 +58,28 @@ public class JapaneseNormalizer {
    * @return normalization result as {@link Result} object
    * @throws NormalizationException thrown when normalization failed, mostly by some validation issues.
    */
-  public static Result normalizeByNFKC(String input) throws NormalizationException {
-    String norm = java.text.Normalizer.normalize(input, java.text.Normalizer.Form.NFKC);
+  static Result normalizeByNFKC(String input) throws NormalizationException {
+    return normalizeByNFKC(input, false);
+  }
+
+    /**
+     * NFKC normalization with orig<=>norm validation.
+     *
+     * <p>This method normalizes input text and also
+     * checks index mapping between original and normalized text.
+     *
+     * <p>With check, this method considers Japanese half-mark sound,
+     * i.e., HANKAKU KATAKANA.
+     *
+     * @param input target text
+     * @param isIgnoreCase whether case is ignored or not
+     * @return normalization result as {@link Result} object
+     * @throws NormalizationException thrown when normalization failed, mostly by some validation issues.
+     */
+  public static Result normalizeByNFKC(String input, boolean isIgnoreCase) throws NormalizationException {
+    String norm = isIgnoreCase ? LinguisticsCase.toLowerCase(input) : input;
+    norm = accentDrop(norm);
+    norm = java.text.Normalizer.normalize(norm, java.text.Normalizer.Form.NFKC);
     Result result = new Result(norm);
 
     // check gaps between raw and norm input by site-by-side check
@@ -65,7 +96,7 @@ public class JapaneseNormalizer {
       }
 
       int rl = 0;
-      String subNorm = "";
+      String subNorm;
       do {
         // increment length
         ++rl;
@@ -77,7 +108,10 @@ public class JapaneseNormalizer {
         }
 
         // normalize sub string
-        subNorm = java.text.Normalizer.normalize(input.substring(ri, ri + rl), java.text.Normalizer.Form.NFKC);
+        subNorm = input.substring(ri, ri + rl);
+        subNorm = isIgnoreCase ? LinguisticsCase.toLowerCase(subNorm) : subNorm;
+        subNorm = accentDrop(subNorm);
+        subNorm = java.text.Normalizer.normalize(subNorm, java.text.Normalizer.Form.NFKC);
 
         // exceed norm
         if (ni + subNorm.length() > norm.length()) {

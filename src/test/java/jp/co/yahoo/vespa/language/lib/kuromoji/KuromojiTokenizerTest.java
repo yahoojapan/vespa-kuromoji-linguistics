@@ -7,8 +7,13 @@ package jp.co.yahoo.vespa.language.lib.kuromoji;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Collections;
 import java.util.List;
 
+import com.yahoo.language.Language;
+import com.yahoo.language.lib.kuromoji.KuromojiConfig;
+import com.yahoo.language.process.StemMode;
+import com.yahoo.vespa.configdefinition.SpecialtokensConfig;
 import org.junit.Test;
 
 import com.yahoo.language.Linguistics;
@@ -97,7 +102,13 @@ public class KuromojiTokenizerTest {
         KuromojiTokenizeTestData testData = KuromojiTokenizeTestData.loadTestData();
         doTest(testData);
     }
-    
+
+    @Test
+    public void testCombingDot() throws Exception {
+        KuromojiTokenizeTestData testData = KuromojiTokenizeTestData.loadTestData();
+        doTest(testData);
+    }
+
     private void doTest(KuromojiTokenizeTestData testData) throws Exception {
         InputArgs inputArgs = testData.getInitArgs();
         List<KuromojiToken> expectTokens = testData.getExpectTokens();
@@ -122,7 +133,7 @@ public class KuromojiTokenizerTest {
             assertEquals(expectToken.getScript(), token.getScript());
             assertEquals(expectToken.isSpecialToken(), token.isSpecialToken());
             assertEquals(expectToken.getOffset(), token.getOffset());
-            
+
             ++idx;
         }
     }
