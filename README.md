@@ -83,7 +83,7 @@ Code licensed under the Apache 2.0 license. See LICENSE for terms.
 ## Contributor License Agreement
 
 This project requires contributors to agree to a [Contributor License
-Agreement (CLA)](https://gist.github.com/ydnjp/3095832f100d5c3d2592).
+Agreement (CLA)](https://gist.github.com/yahoojapanoss/9bf8afd6ea67f32d29b4082abf220340).
 
 Note that only for contributions to the vespa-kuromoji-linguistics repository on the GitHub (https://github.com/yahoojapan/vespa-kuromoji-linguistics),
 the contributors of them shall be deemed to have agreed to the CLA without individual written agreements.
