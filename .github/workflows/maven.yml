@@ -21,4 +21,4 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dvespa.version='7.244.2'
+      run: mvn -B package --file pom.xml -Dvespa.version='7.447.10'

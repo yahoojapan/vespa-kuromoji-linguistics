@@ -142,7 +142,7 @@ public class KuromojiLinguisticsTest {
         String input = "お寿司が食べたい。";
         String[] expecteds = new String[]{"お寿", "寿司", "司が", "が食", "食べ", "べた", "たい"};
         GramSplitterIterator actualIter = gramSplitter.split(input, 2);
-        
+
         for (String expected : expecteds) {
             Gram gram = actualIter.next();
             assertEquals(expected, input.substring(gram.getStart(), gram.getStart() + gram.getCodePointCount()));
