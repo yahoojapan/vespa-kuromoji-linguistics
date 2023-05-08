@@ -141,4 +141,12 @@ public class KuromojiLinguistics implements Linguistics {
   public CharacterClasses getCharacterClasses() {
     return characterClasses;
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean equals(Linguistics other) {
+    return (other instanceof KuromojiLinguistics);
+  }
 }
