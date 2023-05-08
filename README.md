@@ -20,7 +20,7 @@ JDK (>= 11) and maven are required to build package.
 Execute mvn command as below, and you can get package as target/kuromoji-linguistics-${VERSION}-deploy.jar
 
 ```
-$ mvn package -Dvespa.version='7.585.20'     # You can specify 7.585.20 or later.
+$ mvn package -Dvespa.version='7.594.36'     # You can specify 7.594.36 or later.
 ```
 
 ## Use Package

@@ -10,7 +10,7 @@
 
   <groupId>jp.co.yahoo.vespa</groupId>
   <artifactId>kuromoji-linguistics</artifactId>
-  <version>2.0.1</version>
+  <version>2.0.3</version>
   <packaging>container-plugin</packaging>
 
   <name>kuromoji-linguistics</name>
@@ -30,7 +30,7 @@
     <target-jdk.version>11</target-jdk.version>
     <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
     
-    <vespa.version>7-SNAPSHOT</vespa.version>
+    <vespa.version>7.594.36</vespa.version>
     <guice.version>3.0</guice.version>
     
     <kuromoji-ipadic.version>0.9.0</kuromoji-ipadic.version>
