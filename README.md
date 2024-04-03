@@ -42,7 +42,7 @@ Because the package will be used by searcher and indexer, it is recommended to d
 <container id="container" version="1.0">
     <component id="kuromoji" class="jp.co.yahoo.vespa.language.lib.kuromoji.KuromojiLinguistics" bundle="kuromoji-linguistics">
         <config name="language.lib.kuromoji.kuromoji">
-            <mode>search</search>
+            <mode>search</mode>
             <ignore_case>true</ignore_case>
         </config>
     </component>
